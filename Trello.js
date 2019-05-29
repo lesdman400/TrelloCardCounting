@@ -51,8 +51,8 @@ var teams = {
 	"ProductData": ""
 };
 
-var key = config["key"]; //Enter Personal Key
-var token = config["token"]; //Enter Private Token
+var key = config["key"]; 
+var token = config["token"];
 
 
 
