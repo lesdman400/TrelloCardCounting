@@ -1,2 +1,2 @@
 # TrelloCardCounting
-Jquery Trello Card Counting
+Using the Trello REST API to retrieve card status for members

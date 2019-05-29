@@ -1,0 +1,30 @@
+select{
+	color: rgba(0,0,0,0.9);
+	width: 50%;
+}
+
+table{
+	width: 100%;
+}
+
+table tr th{
+	text-align: left;
+	width: 20%;
+}
+
+body{
+	min-width: 320px;
+}
+
+.sectionHeader{
+	font-size: 22px;
+	font-weight: bold;
+	color: rgba(0,0,0,1);
+}
+
+.buttonGroup{
+	display: inline-block;
+}
+.buttonGroup button{
+	width: 100px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Trello Card Counting Automation</title>
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="Trello.js"></script>
+		<link rel=stylesheet href="index.css">
+	</head>
+	<body>
+		<h2>Select Team</h2>
+		<select id="teamName">
+			<!-- <option value="CPWEB">CPWeb TEST</option> -->
+			<option class="sectionHeader" value="depCrestline">CRESTLINE</option>
+			<option value="Graphics">Graphics</option>
+			<option value="Marketing/Brand/Data">Marketing/Brand/Data</option>
+			<option value="Sales">Sales</option>
+			<option value="SalesSupport">Sales Support</option>
+			<option class="sectionHeader" value="depFarmersAlmanac">FARMERS' ALMANAC</option>
+			<option value="Farmers'Almanac">Farmers' Almanac</option>
+			<option class="sectionHeader" value="depGeiger">GEIGER</option>
+			<option value="CorporateProgramsProgramManagersGroup1">Corporate Programs - Program Managers Group 1</option>
+			<option value="CorporateProgramsProgramManagersGroup2">Corporate Programs - Program Managers Group 2</option>
+			<option value="CorporateProgramsProgramManagersGroup3">Corporate Programs - Program Managers Group 3</option>
+			<option value="CorporateProgramsProgramManagersPSG">Corporate Programs - Program Managers PSG</option>
+			<option value="CorporateProgramsWeb&GraphicsGroup1">Corporate Programs - Web & Graphics Group 1</option>
+			<option value="CorporateProgramsWeb&GraphicsGroup2">Corporate Programs - Web & Graphics Group 2</option>
+			<option value="CorporateProgramsCustomerAdvocates">Corporate Programs - Customer Advocates</option>
+			<option value="AssistantProgramManagers&AdminAssistant">Assistant Program Managers & Admin Assistant</option>
+			<option value="CorporateProgramsInventory&Pricing">Corporate Programs - Inventory & Pricing</option>
+			<option value="RiskManagement">Risk Management</option>
+			<option value="DC">DC</option>
+			<option value="Finance">Finance</option>
+			<option value="Marketing">Marketing</option>
+			<option value="TotalCareA/P&FreightPayables">Total Care - A/P & Freight Payables</option>
+			<option value="TotalCareA/R">Total Care - A/R</option>
+			<option value="TotalCareBillingGroup">Total Care - Billing Group</option>
+			<option value="TotalCareClaims">Total Care - Claims</option>
+			<option value="TotalCareCRSThinkTankElite">Total Care - CRS - Think Tank Elite</option>
+			<option value="TotalCareCRSTurnItUp">Total Care - CRS - Turn It Up</option>
+			<option value="TotalCareCRSMightyGreenDots">Total Care - CRS - Mighty Green Dots</option>
+			<option value="TotalCareCRSConceptCrew">Total Care - CRS Concept Crew</option>
+			<option value="TotalCareCRSEastFlorida">Total Care - CRS East - Florida</option>
+			<option value="TotalCareCRSDefendersofTrello">Total Care - CRS - Defenders of Trello</option>
+			<option value="TotalCareCRSMellowTrello">Total Care - CRS - Mellow Trello</option>
+			<option value="TotalCareCRSWest">Total Care - CRS West</option>
+			<option value="TotalCareCRSLewiston">Total Care - CRS - Lewiston</option>
+			<option value="TotalCareCRSServiceNow">Total Care - CRS - Service Now</option>
+			<option value="TotalCareOrderExpediting">Total Care - Order Expediting</option>
+			<option value="TotalCareOrderVerifier">Total Care - Order Verifier</option>
+			<option class="sectionHeader" value="depSupport" disabled>GEIGER SUPPORT</option>
+			<option value="CorporateFinance">Corporate Finance</option>
+			<option value="ExMgmt&AdminServices">Ex Mgmt & Admin Services</option>
+			<option value="VendorRelations">Vendor Relations</option>
+			<option value="HR/OD/OS">HR/OD/OS</option>
+			<option value="ITEcommerce">IT - Ecommerce</option>
+			<option value="ITHelpdesk/WebApps/NOC">IT - Helpdesk, Web Apps, NOC</option>
+			<option value="ProductData">Product Data</option>
+		</select>
+		<div class="buttonGroup">
+			<button id="submit" onclick="RetrieveTrelloData();">Get Results</button>
+			<button id="submit" onclick="ResetTable();">Reset</button>
+		</div>
+		<div id="results">
+			<table id='tblResults'>
+				<tr>
+					<th>User</th>
+					<th>New</th>
+					<th>Implementing</th>
+					<th>Completed</th>
+					<th>Parked</th>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
