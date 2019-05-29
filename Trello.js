@@ -51,8 +51,10 @@ var teams = {
 	"ProductData": ""
 };
 
-var key = ""; //Enter Personal Key
-var token = ""; //Enter Private Token
+var key = settings["key"]; //Enter Personal Key
+var token = settings["token"]; //Enter Private Token
+
+
 
 /**
  * Main function to retrieve and process Trello REST API Data
