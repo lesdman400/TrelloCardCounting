@@ -24,6 +24,7 @@ $( document ).ready(function() {
  * Main function to retrieve and process Trello REST API Data
  */
 function RetrieveTrelloData(){
+	$("#errorMsg").hide();
 	let dctMemberDetails = {};
 	let memberList = [];
 	if(departments[$("#teamName")[0].value] !== undefined){
@@ -40,6 +41,8 @@ function RetrieveTrelloData(){
 			});
 			if(tmpMemberList === "" || tmpMemberList.length === 0){
 				console.log("No members available to process");
+				$("#errorMsg").text("* Team has no members to process. Please contact <name> to setup your team.");
+				$("#errorMsg").show();
 				return;
 			}
 			memberList = tmpMemberList.split(",");
