@@ -29,11 +29,19 @@ function RetrieveTrelloData(){
 	if(departments[$("#teamName")[0].value] !== undefined){
 		if(departments[$("#teamName")[0].value].length > 0){
 			let tmpMemberList = [];
-			let departmentList = departments[$("#teamName")[0].value].split(",")
+			let departmentList = departments[$("#teamName")[0].value].split(",");
 			$.each(departmentList, function(id){
-				if(id!==0){tmpMemberList += ",";}
-				tmpMemberList+=teams[departmentList[id]].split(",");
+				if(teams[departmentList[id]] !== ""){
+					if(id!==0){tmpMemberList += ",";}
+					tmpMemberList+=teams[departmentList[id]].split(",");
+				}else{
+					console.log("Warning! Team: "+departmentList[id]+ " has no members.");
+				}
 			});
+			if(tmpMemberList === "" || tmpMemberList.length === 0){
+				console.log("No members available to process");
+				return;
+			}
 			memberList = tmpMemberList.split(",");
 		}else{
 			console.log("No teams found for Department: " + $("[value="+$("#teamName")[0].value+"]").html());
@@ -219,7 +227,7 @@ function writeData(dctMemberDetails){
 		}
 	});
 	
-	//Mark users "not found" in red
+	//Mark invalid users in red
 	if($("#results #tblResults tr[validUser~='false']").length > 0){
 		$("#results #tblResults tr[validUser~='false'] td:first-of-type").css("background-color","rgba(255,0,0,0.3)");
 	}
