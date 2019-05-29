@@ -211,10 +211,10 @@ function createURLs(lstMembers, type){
 function writeData(dctMemberDetails){
 	$.each(dctMemberDetails, function(key, val){
 		//Update Result If Exists else make new row
-		if($("#results #tblResults tr :contains("+val['fullName']+")").length > 0){
-			$("#results #tblResults tr :contains("+val['fullName']+")").parent().html("<td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td>");
+		if($("#results #tblResults tr[id~='"+key+"']").length > 0){
+			$("#results #tblResults tr[id~='"+key+"']").html("<td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td>");
 		}else{
-			$("#results #tblResults tr:last").after("<tr><td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td></tr>");
+			$("#results #tblResults tr:last").after("<tr id="+key+"><td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td></tr>");
 		}
 	});
 	
