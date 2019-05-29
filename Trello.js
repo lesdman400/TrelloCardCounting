@@ -83,6 +83,7 @@ function getMemberData(urls, memberList, dctMemberDetails, callback){
 				if(dctMemberDetails[jsonData[id][200].username] === undefined){
 					dctMemberDetails[jsonData[id][200].username] = {};
 					dctMemberDetails[jsonData[id][200].username]["id"] = jsonData[id][200].id;
+					dctMemberDetails[jsonData[id][200].username]["validUser"] = true;
 					if(jsonData[id][200].fullName !== null){
 						dctMemberDetails[jsonData[id][200].username]["fullName"] = jsonData[id][200].fullName;
 					}else{
@@ -91,7 +92,7 @@ function getMemberData(urls, memberList, dctMemberDetails, callback){
 				}
 			}else{
 				if(dctMemberDetails[memberList[0]] === undefined){
-					dctMemberDetails[memberList[0]] = {"id":"", "fullName": memberList[0] +" not found"};
+					dctMemberDetails[memberList[0]] = {"id":"", "fullName": memberList[0] +" not found","validUser":false};
 				}
 			}
 			memberList.shift();
@@ -214,13 +215,13 @@ function writeData(dctMemberDetails){
 		if($("#results #tblResults tr[id~='"+key+"']").length > 0){
 			$("#results #tblResults tr[id~='"+key+"']").html("<td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td>");
 		}else{
-			$("#results #tblResults tr:last").after("<tr id="+key+"><td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td></tr>");
+			$("#results #tblResults tr:last").after("<tr id="+key+" validUser="+val["validUser"]+"><td>"+val["fullName"]+"</td><td>"+val["new"]+"</td><td>"+val["implementing"]+"</td><td>"+val["completed"]+"</td><td>"+val["parked"]+"</td></tr>");
 		}
 	});
 	
 	//Mark users "not found" in red
-	if($("#results #tblResults tr :contains(not found)").length > 0){
-		$("#results #tblResults tr :contains(not found)").css("background-color","rgba(255,0,0,0.3)");
+	if($("#results #tblResults tr[validUser~='false']").length > 0){
+		$("#results #tblResults tr[validUser~='false'] td:first-of-type").css("background-color","rgba(255,0,0,0.3)");
 	}
 }
 
