@@ -16,6 +16,26 @@ body{
 	min-width: 320px;
 }
 
+#loading{
+	margin-top: 10%;
+	text-align: center;
+	font-size: 22px;
+}
+
+#loading #loadingWheel{
+	position: absolute;
+	background-image: url("http://cdn.onlinewebfonts.com/svg/img_1593.png");
+	height: 1em;
+	width: 1em;
+	background-size: cover;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 .sectionHeader{
 	font-size: 22px;
 	font-weight: bold;

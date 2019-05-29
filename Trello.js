@@ -4,6 +4,22 @@ var token = config["token"];
 var departments = departments;
 var teams = teams;
 
+//Start and stop a loading wheel
+$( document ).ready(function() {
+	var $table = $('#tblResults');
+	var $loading = $('#loading').hide();
+	$(document)
+	  .ajaxStart(function () {
+	    $loading.show();
+	    $table.hide();
+	  })
+	  .ajaxStop(function () {
+	    $loading.hide();
+	    $table.show();
+	  });
+});
+
+
 /**
  * Main function to retrieve and process Trello REST API Data
  */
